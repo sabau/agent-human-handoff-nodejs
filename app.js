@@ -20,6 +20,7 @@ const io = require('socket.io')(http);
 const CustomerStore = require('./customerStore.js');
 const MessageRouter = require('./messageRouter.js');
 
+process.env.APIAI_ACCESS_TOKEN = process.env.APIAI_ACCESS_TOKEN || '90367979439c4d6288c2ecc38284e77f';
 // Load and instantiate the API.AI client library
 const ApiAi = require('apiai');
 const apiAiApp = ApiAi(process.env.APIAI_ACCESS_TOKEN);
@@ -39,6 +40,6 @@ app.get('/operator', (req, res) => {
 
 // Begin responding to websocket and http requests
 messageRouter.handleConnections();
-http.listen(3000, () => {
-  console.log('Listening on *:3000');
+http.listen(3003, () => {
+  console.log('Listening on *:3003');
 });
